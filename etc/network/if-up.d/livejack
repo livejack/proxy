@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+if [ "inet" != "$ADDRFAM" ]; then exit 0; fi
+if [ "eth0" != "$IFACE" ]; then exit 0; fi
+
+iptables -t nat -p tcp -A PREROUTING --destination figlive.nsocket.com --dport 80 -j DNAT --to-destination :18080
+iptables -t nat -p tcp -A PREROUTING --destination figlive.nsocket.com --dport 443 -j DNAT --to-destination :18443
+
+iptables -t nat -p tcp -A OUTPUT --destination figlive.nsocket.com --dport 80 -j DNAT --to-destination :18080
+iptables -t nat -p tcp -A OUTPUT --destination figlive.nsocket.com --dport 443 -j DNAT --to-destination :18443
+
+iptables -A INPUT -p tcp --dport 18080 -j ACCEPT
+iptables -A INPUT -p tcp --dport 18443 -j ACCEPT
+
