@@ -8,14 +8,14 @@ function statusCheck() {
 	var contentNode = document.getElementById('content');
 	var messageNode = document.getElementById('message');
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/.well-known/pageboard", true);
+	xhr.open("GET", "/.well-known/status", true);
 	xhr.onreadystatechange = function() {
 		if (this.readyState != 4) return;
 		var code = this.status;
 		if (code >= 200 && code < 300) {
 			var res;
 			try {
-				res = JSON.parse(this.responseText);
+				res = this.responseText ? JSON.parse(this.responseText) : {};
 			} catch(ex) {
 				setTimeout(function() {
 					window.statusCheck();
