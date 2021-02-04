@@ -4,7 +4,7 @@ lualnclean:
 	rm -f lua/upcache*
 
 luarocks:
-	luarocks --tree=rocks install upcache 2.1.2
+	luarocks --tree=rocks install upcache 2.1.1
 	curl -L https://github.com/openresty/lua-resty-lock/archive/v0.08.tar.gz | \
 		tar -C ./rocks/share/lua/5.1/ -x -v -z -f - \
 			--wildcards '*/lib/resty/*' --strip-components 2
