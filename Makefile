@@ -24,3 +24,5 @@ lualn:
 nginx/mime.types:
 	cd nginx && ln -sf /etc/nginx/mime.types .
 
+nginx/temp:
+	mkdir -p nginx/temp
