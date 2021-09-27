@@ -70,5 +70,4 @@ rocks
 
 # ssl config
 /nginx/ssl
-/nginx/enabled
 /autossl
