@@ -61,7 +61,8 @@ typings/
 nginx/snippets
 
 # luarocks installed modules
-rocks
+/rocks
+/*.so
 
 # links
 /nginx/mime.types
