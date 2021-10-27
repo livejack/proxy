@@ -24,7 +24,7 @@ luarocks:
 			--wildcards '*/lib/resty/*' --strip-components 2
 
 lualn:
-	cd rocks/share/lua/5.1/ && ln -sf ../../../../lua/* .
+	cd rocks/lib/lua/5.1/ && ln -sf ../../../../lua/* .
 
 luapatches:
 	-patch --backup --forward --strip 1 --quiet --reject-file - < patches/autossl-otf.patch
