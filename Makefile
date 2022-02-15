@@ -1,4 +1,4 @@
-install: luarocks luapatches nginx/mime.types lualnclean lualn
+install: luarocks luapatches nginx/mime.types nginx/temp nginx/logs lualnclean lualn
 
 lualnclean:
 	rm -f lua/upcache*
@@ -6,6 +6,7 @@ lualnclean:
 luarocks:
 	luarocks --tree=rocks install upcache 2.2.1
 	luarocks --tree=rocks install lua-toml 2.0
+	luarocks --tree=rocks install lua-resty-http 0.15
 	luarocks --tree=rocks install lua-resty-auto-ssl 0.13.1
 	luarocks --tree=rocks install luafilesystem 1.8.0
 	luarocks --tree=rocks install lua-cjson 2.1.0.6
@@ -34,6 +35,9 @@ nginx/mime.types:
 
 nginx/temp:
 	mkdir -p nginx/temp
+
+nginx/logs:
+	mkdir -p nginx/logs
 
 leclean:
 	rm -rf autossl/storage
