@@ -4,7 +4,7 @@ lualnclean:
 	rm -f lua/upcache*
 
 luarocks:
-	luarocks --tree=rocks install upcache 2.1.1
+	luarocks --tree=rocks install upcache 2.2.1
 	luarocks --tree=rocks install lua-toml 2.0
 	luarocks --tree=rocks install lua-resty-auto-ssl 0.13.1
 	luarocks --tree=rocks install luafilesystem 1.8.0
